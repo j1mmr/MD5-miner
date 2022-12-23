@@ -46,9 +46,9 @@ int check_hash(uint8_t *max_value, char *hash){
 }
 void incremeant_nonce(uint8_t *input){
 	int current_location = 63;
-	if (input[current_location] == 0xFF){
-		while(input[current_location] == 0xFF){
-			input[current_location] = 0x00;
+	if (input[current_location] == 0x7){
+		while(input[current_location] == 0x7){
+			input[current_location] = 0x0;
 			current_location--;
 		}
 		input[current_location]++;
@@ -73,7 +73,7 @@ int main(void){
 	uint8_t *previous_hash, *data, *nonce;
 
 	//instantiate 
-	uint8_t max_value[HASH_SIZE_8] = {0x00,0x00,0x00,0x00,0x0F,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+	uint8_t max_value[HASH_SIZE_8] = {0x0,0x0,0x2,0x0,0x0,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
 	
 	uint8_t* input_array = malloc(sizeof(uint8_t) * UINT8_ARRAY_SIZE);
 
